@@ -31,7 +31,7 @@ public class Lottery {
     public List<Integer>  startLottery2() {
         List<Integer> winner = new ArrayList<>();
         while (winner.size() < selected) {
-            int win = random.nextInt(1, numbers + 1);
+            int win = random.nextInt(numbers) + 1;
             if (!winner.contains(win)) {
                 winner.add(win);
             }
