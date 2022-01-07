@@ -27,6 +27,10 @@ public class User {
         return new ArrayList<>(items);
     }
 
+    public void buy2(Item item) {
+
+    }
+
     public void buy(Item item) {
         if (money >= item.getPrice()) {
             Item newItem = getNewItem(item);
