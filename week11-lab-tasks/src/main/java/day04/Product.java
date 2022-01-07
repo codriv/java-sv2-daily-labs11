@@ -5,14 +5,21 @@ import java.util.Locale;
 
 public class Product extends Item{
 
+    private int basicWarrantyMonth = 3;
+    private int extendedPercent = 10;
+    private int extendedYear = 3;
+
     public Product(String name, int price) {
         super(name, price);
-        setBestBefore(LocalDate.now().plusMonths(3));
     }
 
-    public void extendWarranty(int year, int percent) {
-        double increasedPrice = super.getPrice() * (100 + percent) / 100d;
+    public void extendWarranty() {
+        double increasedPrice = super.getPrice() * (100 + extendedPercent) / 100d;
         super.setPrice(Integer.parseInt(String.format(Locale.US, "%.0f", increasedPrice)));
-        setBestBefore(LocalDate.now().plusYears(year));
+        setBestBefore(LocalDate.now().plusYears(extendedYear));
+    }
+
+    public void setBestBefore() {
+        super.setBestBefore(LocalDate.now().plusMonths(basicWarrantyMonth));
     }
 }

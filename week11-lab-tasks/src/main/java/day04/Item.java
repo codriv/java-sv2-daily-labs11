@@ -22,7 +22,11 @@ public class Item {
     }
 
     public LocalDate getBestBefore() {
-        return bestBefore;
+        if (bestBefore == null) {
+            return LocalDate.now();
+        } else {
+            return bestBefore;
+        }
     }
 
     public void setPrice(int price) {

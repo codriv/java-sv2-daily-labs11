@@ -1,5 +1,6 @@
 package day04;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,8 +9,6 @@ public class User {
     private String name;
     private int money;
     private List<Item> items = new ArrayList<>();
-    private int extendedPercent = 10;
-    private int extendedYear = 3;
 
     public User(String name, int money) {
         this.name = name;
@@ -43,12 +42,19 @@ public class User {
         String name = item.getName();
         int price = item.getPrice();
         if (item instanceof Product) {
-            newItem = new Product(name, price);
-            if (money >= price * 3) {
-                ((Product)newItem).extendWarranty(extendedYear, extendedPercent);
-            }
+            newItem = getProduct(name, price);
         } else {
             newItem = new Service(name, price);
+            ((Service)newItem).setBestBefore();
+        }
+        return newItem;
+    }
+
+    private Product getProduct(String name, int price) {
+        Product newItem = new Product(name, price);
+        newItem.setBestBefore();
+        if (money >= price * 3) {
+            newItem.extendWarranty();
         }
         return newItem;
     }

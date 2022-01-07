@@ -1,5 +1,6 @@
 package day04;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Webshop {
@@ -10,6 +11,10 @@ public class Webshop {
     public Webshop(List<Item> itemsForSale, List<User> users) {
         this.itemsForSale = itemsForSale;
         this.users = users;
+    }
+
+    public List<Item> getItemsForSale() {
+        return new ArrayList<>(itemsForSale);
     }
 
     public void buy(String userName, String itemName) {

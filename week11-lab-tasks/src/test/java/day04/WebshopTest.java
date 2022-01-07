@@ -22,6 +22,7 @@ class WebshopTest {
         webshop.buy("Nagy Sándor", "TV");
         assertEquals(165000, users.get(0).getItems().get(0).getPrice());
         assertEquals(LocalDate.now().plusYears(3), users.get(0).getItems().get(0).getBestBefore());
+        assertEquals(LocalDate.now(), items.get(0).getBestBefore());
         assertEquals(835000, users.get(0).getMoney());
     }
 
