@@ -14,7 +14,7 @@ class ProductTest {
     void extendWarranty() {
         assertEquals("TV", product.getName());
         assertEquals(150000, product.getPrice());
-        assertEquals(LocalDate.now(), product.getBestBefore());
+        assertEquals(LocalDate.now().plusMonths(3), product.getBestBefore());
         product.extendWarranty();
         assertEquals(165000, product.getPrice());
         assertEquals(LocalDate.now().plusYears(3), product.getBestBefore());

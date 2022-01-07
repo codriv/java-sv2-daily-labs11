@@ -7,6 +7,11 @@ public class Webshop {
 
     private List<Item> itemsForSale;
     private List<User> users;
+    public static int BASIC_SERVICE_WARRANTY = 12;
+    public static int BASIC_PRODUCT_WARRANTY = 3;
+    public static int EXTENDED_PRICE_PERCENT = 10;
+    public static int EXTENDED_WARRANTY = 36;
+
 
     public Webshop(List<Item> itemsForSale, List<User> users) {
         this.itemsForSale = itemsForSale;

@@ -22,18 +22,14 @@ public class Item {
     }
 
     public LocalDate getBestBefore() {
-        if (bestBefore == null) {
-            return LocalDate.now();
-        } else {
-            return bestBefore;
-        }
+        return bestBefore;
     }
 
     public void setPrice(int price) {
         this.price = price;
     }
 
-    public void setBestBefore(LocalDate bestBefore) {
-        this.bestBefore = bestBefore;
+    public void setBestBefore(int warranty) {
+        this.bestBefore = LocalDate.now().plusMonths(warranty);
     }
 }

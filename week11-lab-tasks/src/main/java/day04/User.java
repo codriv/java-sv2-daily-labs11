@@ -29,7 +29,7 @@ public class User {
 
     public void buy(Item item) {
         if (money >= item.getPrice()) {
-            Item newItem = getSelectedItem(item);
+            Item newItem = getNewItem(item);
             items.add(newItem);
             money -= newItem.getPrice();
         } else {
@@ -37,7 +37,7 @@ public class User {
         }
     }
 
-    private Item getSelectedItem(Item item) {
+    private Item getNewItem(Item item) {
         Item newItem;
         String name = item.getName();
         int price = item.getPrice();

@@ -14,6 +14,6 @@ class ServiceTest {
     void createTest() {
         assertEquals("service", service.getName());
         assertEquals(20000, service.getPrice());
-        assertEquals(LocalDate.now(), service.getBestBefore());
+        assertEquals(LocalDate.now().plusMonths(12), service.getBestBefore());
     }
 }
