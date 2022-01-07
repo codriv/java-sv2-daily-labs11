@@ -21,11 +21,11 @@ class WebshopTest {
     void buy() {
         webshop.buy("Nagy Sándor", "TV");
         assertEquals(165000, users.get(0).getItems().get(0).getPrice());
-        assertEquals(LocalDate.now().plusYears(3), users.get(0).getItems().get(0).getBestBefore());
+        assertEquals(LocalDate.now().plusMonths(36), users.get(0).getItems().get(0).getBestBefore());
         assertEquals(LocalDate.now().plusMonths(3), items.get(0).getBestBefore());
         assertEquals(835000, users.get(0).getMoney());
         webshop.buy("Kis Péter", "serviceCheap");
-        assertEquals(LocalDate.now().plusYears(1), items.get(1).getBestBefore());
+        assertEquals(LocalDate.now().plusMonths(12), items.get(1).getBestBefore());
         assertEquals(LocalDate.now().plusMonths(3), items.get(3).getBestBefore());
     }
 

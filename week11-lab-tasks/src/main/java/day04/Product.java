@@ -18,7 +18,7 @@ public class Product extends Item{
     @Override
     public LocalDate getBestBefore() {
         if (super.getBestBefore() == null) {
-            return LocalDate.now().plusMonths(3);
+            return LocalDate.now().plusMonths(Webshop.BASIC_PRODUCT_WARRANTY);
         } else {
             return super.getBestBefore();
         }

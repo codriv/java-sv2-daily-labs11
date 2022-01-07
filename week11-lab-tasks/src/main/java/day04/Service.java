@@ -11,7 +11,7 @@ public class Service extends Item{
     @Override
     public LocalDate getBestBefore() {
         if (super.getBestBefore() == null) {
-            return LocalDate.now().plusYears(1);
+            return LocalDate.now().plusMonths(Webshop.BASIC_SERVICE_WARRANTY);
         } else {
             return super.getBestBefore();
         }

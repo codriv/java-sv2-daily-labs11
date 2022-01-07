@@ -1,6 +1,5 @@
 package day04;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,39 +26,12 @@ public class User {
         return new ArrayList<>(items);
     }
 
-    public void buy2(Item item) {
-
-    }
-
     public void buy(Item item) {
         if (money >= item.getPrice()) {
-            Item newItem = getNewItem(item);
-            items.add(newItem);
-            money -= newItem.getPrice();
+            items.add(item);
+            money -= item.getPrice();
         } else {
             throw new IllegalStateException("Not enough money!");
         }
-    }
-
-    private Item getNewItem(Item item) {
-        Item newItem;
-        String name = item.getName();
-        int price = item.getPrice();
-        if (item instanceof Product) {
-            newItem = getProduct(name, price);
-        } else {
-            newItem = new Service(name, price);
-            ((Service)newItem).setBestBefore();
-        }
-        return newItem;
-    }
-
-    private Product getProduct(String name, int price) {
-        Product newItem = new Product(name, price);
-        newItem.setBestBefore();
-        if (money >= price * 3) {
-            newItem.extendWarranty();
-        }
-        return newItem;
     }
 }
